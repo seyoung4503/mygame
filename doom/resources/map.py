@@ -4,13 +4,13 @@ _ = False
 mini_map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
-    [1, _, _, 1, 1, 1, 1, _, _, _, 1, 1, 1, _, _, 1],
-    [1, _, _, _, _, _, 1, _, _, _, _, _, 1, _, _, 1],
-    [1, _, _, _, _, _, 1, _, _, _, _, _, 1, _, _, 1],
-    [1, _, _, 1, 1, 1, 1, _, _, _, _, _, _, _, _, 1],
+    [1, _, _, 3, 3, 3, 3, _, _, _, 2, 2, 2, _, _, 1],
+    [1, _, _, _, _, _, 4, _, _, _, _, _, 2, _, _, 1],
+    [1, _, _, _, _, _, 4, _, _, _, _, _, 2, _, _, 1],
+    [1, _, _, 3, 3, 3, 3, _, _, _, _, _, _, _, _, 1],
     [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
-    [1, _, _, 1, _, _, _, 1, _, _, _, _, _, _, _, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, _, _, _, 4, _, _, 4, _, _, _, _, _, _, _, 1],
+    [1, 1, 1, 3, 1, 3, 1, 1, 3, 3, 3, 3, 3, 1, 1, 1],
 ]
 
 class Map:
@@ -27,10 +27,10 @@ class Map:
                     self.world_map[(i, j)] = value
     
     def draw(self):
-        # for screen size with 900 * 450
-        [pg.draw.rect(self.game.screen, 'darkgray', (pos[0] * 50, pos[1] * 50, 50, 50), 2)
-         for pos in self.world_map]
+        # # for screen size with 900 * 450
+        # [pg.draw.rect(self.game.screen, 'darkgray', (pos[0] * 50, pos[1] * 50, 50, 50), 2)
+        #  for pos in self.world_map]
         
         # for screen size with 1600 * 900
-        # [pg.draw.rect(self.game.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
-        #  for pos in self.world_map]
+        [pg.draw.rect(self.game.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
+         for pos in self.world_map]
