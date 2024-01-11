@@ -43,7 +43,7 @@ class NPC(AnimatedSprite):
         next_pos = self.game.pathfinding.get_path(self.map_pos, self.game.player.map_pos)
         next_x, next_y = next_pos
 
-        # pg.draw.rect(self.game.screen, 'blue', (100 * next_x, 100 * next_y, 100, 100))
+        pg.draw.rect(self.game.screen, 'blue', (100 * next_x, 100 * next_y, 100, 100))
         if next_pos not in self.game.object_handler.npc_positions:
             angle = math.atan2(next_y + 0.5 - self.y, next_x + 0.5 - self.x)
             dx = math.cos(angle) * self.speed
@@ -71,9 +71,9 @@ class NPC(AnimatedSprite):
     def check_hit_in_npc(self):
         # npc가 나를 볼때만 총을 맞음
         if self.ray_cast_value and self.game.player.shot:
-            # print(HALF_WIDTH - self.sprite_half_width, self.screen_x, HALF_WIDTH + self.sprite_half_width) 
-            # pg.draw.line(self.game.screen, 'yellow', (HALF_WIDTH - self.sprite_half_width, HALF_HEIGHT),
-            #             (HALF_WIDTH + self.sprite_half_width, HALF_HEIGHT), 2)
+            print(HALF_WIDTH - self.sprite_half_width, self.screen_x, HALF_WIDTH + self.sprite_half_width) 
+            pg.draw.line(self.game.screen, 'yellow', (HALF_WIDTH - self.sprite_half_width, HALF_HEIGHT),
+                        (HALF_WIDTH + self.sprite_half_width, HALF_HEIGHT), 2)
             if HALF_WIDTH - self.sprite_half_width < self.screen_x < HALF_WIDTH + self.sprite_half_width:
                 self.game.sound.npc_pain.play()
                 self.game.player.shot = False

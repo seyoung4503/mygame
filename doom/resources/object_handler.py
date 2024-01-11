@@ -1,5 +1,6 @@
 from sprite_object import *
 from npc import *
+from random import choices, randrange
 
 class ObjectHandler:
     def __init__(self, game):
@@ -12,6 +13,11 @@ class ObjectHandler:
         add_sprite = self.add_sprite
         add_npc = self.add_npc
         self.npc_positions = {}
+
+        self.enemies = 10
+        self.npc_type = [soldierNPC, CacoDemonNPC, CyberDemonNPC]
+        self.weights = [70, 20, 10]
+
 
         # sprite map
         add_sprite(SpriteObject(game))
@@ -41,3 +47,7 @@ class ObjectHandler:
 
     def add_sprite(self, sprite):
         self.sprite_list.append(sprite)
+
+    def spawn_npc(self):
+        npc = choices(self.npc_type, self.weights)[0]
+        self.add_npc(npc)
